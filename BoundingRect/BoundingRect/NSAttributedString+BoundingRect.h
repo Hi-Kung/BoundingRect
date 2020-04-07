@@ -11,7 +11,7 @@
 
 @interface NSMutableAttributedString (BoundingRect)
 
-- (CGSize)boundingRectWithMaxSize:(CGSize)maxSize
+- (CGSize)hk_boundingRectWithMaxSize:(CGSize)maxSize
                              font:(UIFont *)font
                    paragraphStyle:(NSMutableParagraphStyle *)style
                     maxLineNumber:(NSUInteger)maxLineNumber;

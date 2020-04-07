@@ -11,9 +11,6 @@
 
 @interface NSString (BoundingRect)
 
-- (BOOL)containsChinese;
-- (CGSize)boundingRectWithMaxSize:(CGSize)maxSize
-                             font:(UIFont *)font
-                    maxLineNumber:(NSUInteger)maxLineNumber;
+- (BOOL)hk_containsChinese;
 
 @end

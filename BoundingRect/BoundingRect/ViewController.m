@@ -47,7 +47,7 @@
     
     NSUInteger lineNumber = 2;
     
-    CGSize rectInfo = [attStr boundingRectWithMaxSize:labelSize font:bigFont paragraphStyle:style maxLineNumber:lineNumber];
+    CGSize rectInfo = [attStr hk_boundingRectWithMaxSize:labelSize font:bigFont paragraphStyle:style maxLineNumber:lineNumber];
     
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(16, 100, labelSize.width, rectInfo.height)];

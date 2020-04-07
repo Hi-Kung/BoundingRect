@@ -12,7 +12,7 @@
 
 @implementation NSMutableAttributedString (BoundingRect)
 
-- (CGSize)boundingRectWithMaxSize:(CGSize)maxSize
+- (CGSize)hk_boundingRectWithMaxSize:(CGSize)maxSize
                              font:(UIFont *)font
                    paragraphStyle:(NSMutableParagraphStyle *)style
                     maxLineNumber:(NSUInteger)maxLineNumber
@@ -20,14 +20,20 @@
     if (font==nil || self==nil) {
         return CGSizeZero;
     }
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+    if (font) {
+        [attributes setObject:font forKey:NSFontAttributeName];
+    }
+    if (style) {
+        [attributes setObject:style forKey:NSParagraphStyleAttributeName];
+    }
     
-    NSStringDrawingOptions options = NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
-    CGRect rect = [self boundingRectWithSize:maxSize options:options context:nil];
-    
+    CGRect rect = [self.string boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:attributes context:nil];
+
     CGFloat lineSpacing = style?style.lineSpacing:0;
     
     if ((rect.size.height - font.lineHeight) <= lineSpacing &&
-        [self.string containsChinese]) {
+        [self.string hk_containsChinese]) {
         // 只有一行且包含中文 减去行间距
         if (style) {
             style.lineSpacing = 0;

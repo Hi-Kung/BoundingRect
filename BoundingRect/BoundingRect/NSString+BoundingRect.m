@@ -10,27 +10,7 @@
 
 @implementation NSString (BoundingRect)
 
-- (CGSize)boundingRectWithMaxSize:(CGSize)maxSize
-                          font:(UIFont *)font
-                 maxLineNumber:(NSUInteger)maxLineNumber
-{
-    if (font==nil || self==nil) {
-        return CGSizeZero;
-    }
-    
-    CGRect rect = [self boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:font} context:nil];
-    
-    if (maxLineNumber>0){
-        CGFloat maxHeight = maxLineNumber * font.lineHeight;
-        
-        if (rect.size.height > maxHeight){
-            return CGSizeMake(rect.size.width, maxHeight);
-        }
-    }
-    return rect.size;
-}
-
-- (BOOL)containsChinese{
+- (BOOL)hk_containsChinese{
     for (int i=0; i<self.length; i++) {
         unichar ch = [self characterAtIndex:i];
         if (0x4E00 <= ch  && ch <= 0x9FA5) {

@@ -28,9 +28,9 @@
     style.lineSpacing = 4;
 //    style.lineBreakMode = NSLineBreakByTruncatingTail;
     
-//    NSString *str = @"从她分享的照片和贴文中不难看";
+    NSString *str = @"从她分享的照片和贴文中不难看";
 
-    NSString *str = @"从她分享的照片和贴文中不难看出对警察工作的热爱从她分享的照片和贴文中不难看出对警察工作的热爱";
+//    NSString *str = @"从她分享的照片和贴文中不难看出对警察工作的热爱从她分享的照片和贴文中不难看出对警察工作的热爱";
     
     NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];
     [attrStr addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, attrStr.length)];
